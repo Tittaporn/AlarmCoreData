@@ -13,7 +13,7 @@ protocol AlarmTableViewCellDelegate : AnyObject {
 }
 
 class AlarmTableViewCell: UITableViewCell {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var alarmTitleLabel: UILabel!
     @IBOutlet weak var alarmFireDateLabel: UILabel!

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="1fH-FI-HqM" customClass="AlarmTableViewCell" customModule="AlarmCoreData" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="97" id="1fH-FI-HqM" customClass="AlarmTableViewCell" customModule="AlarmCoreData" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1fH-FI-HqM" id="cew-Vi-iha">
@@ -63,7 +63,7 @@
                                     <outlet property="alarmFireDateLabel" destination="qIJ-ov-6cd" id="nFt-Lm-pyd"/>
                                     <outlet property="alarmTitleLabel" destination="T08-Bw-pbp" id="hRI-BU-j2Y"/>
                                     <outlet property="isEnabledSwitch" destination="mmr-pP-LoS" id="ZmR-Mf-IBN"/>
-                                    <segue destination="QS6-gl-Qhw" kind="show" id="Abf-EX-AXH"/>
+                                    <segue destination="QS6-gl-Qhw" kind="show" identifier="toAlarmDetailVC" id="Abf-EX-AXH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
