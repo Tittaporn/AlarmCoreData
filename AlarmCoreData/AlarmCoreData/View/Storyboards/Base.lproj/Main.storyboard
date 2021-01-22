@@ -11,13 +11,13 @@
         <!--Alarms-->
         <scene sceneID="ZdB-n9-9EU">
             <objects>
-                <tableViewController id="qwM-Ez-7B9" sceneMemberID="viewController">
+                <tableViewController id="qwM-Ez-7B9" customClass="AlarmListTableViewController" customModule="AlarmCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="g9u-l5-PpP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="1fH-FI-HqM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="1fH-FI-HqM" customClass="AlarmTableViewCell" customModule="AlarmCoreData" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1fH-FI-HqM" id="cew-Vi-iha">
@@ -45,6 +45,9 @@
                                             <rect key="frame" x="361" y="33" width="51" height="31"/>
                                             <color key="onTintColor" red="0.102625601" green="0.14047515390000001" blue="0.1764756143" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="thumbTintColor" red="0.24140208960000001" green="0.76744514699999999" blue="0.6584148407" alpha="0.90199593320000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="isEnableSwitchToggled:" destination="1fH-FI-HqM" eventType="valueChanged" id="P1W-wO-bMS"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -57,6 +60,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="alarmFireDateLabel" destination="qIJ-ov-6cd" id="nFt-Lm-pyd"/>
+                                    <outlet property="alarmTitleLabel" destination="T08-Bw-pbp" id="hRI-BU-j2Y"/>
+                                    <outlet property="isEnabledSwitch" destination="mmr-pP-LoS" id="ZmR-Mf-IBN"/>
                                     <segue destination="QS6-gl-Qhw" kind="show" id="Abf-EX-AXH"/>
                                 </connections>
                             </tableViewCell>
@@ -78,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="359" y="94"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Alarm Detail Table View Controller-->
         <scene sceneID="4Fk-oz-p2w">
             <objects>
-                <tableViewController id="QS6-gl-Qhw" sceneMemberID="viewController">
+                <tableViewController id="QS6-gl-Qhw" customClass="AlarmDetailTableViewController" customModule="AlarmCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQh-rE-GE9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,6 +158,9 @@
                                                     <state key="normal" title="On">
                                                         <color key="titleColor" red="0.95001000170000005" green="0.66480565069999997" blue="0.23398077489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="alarmIsEnabledButtonTapped:" destination="QS6-gl-Qhw" eventType="touchUpInside" id="bdC-jq-I6a"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.102625601" green="0.14047515390000001" blue="0.1764756143" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -172,8 +181,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ri5-5z-6Oi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XT7-4s-jSO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XT7-4s-jSO">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="QS6-gl-Qhw" id="DSw-Bi-FI1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alarmFireDatePicker" destination="NV7-Xx-dfS" id="Ym7-6K-gTg"/>
+                        <outlet property="alarmIsEnabledButton" destination="nUT-HF-fnN" id="TeX-Jp-fCt"/>
+                        <outlet property="alarmTitleTextField" destination="tRV-Ym-A2f" id="FH1-oH-Vb1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjD-64-6Hp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
